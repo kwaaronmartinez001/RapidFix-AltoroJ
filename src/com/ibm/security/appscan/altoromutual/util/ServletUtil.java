@@ -352,25 +352,25 @@ public class ServletUtil {
 		}
 	}
 	
-	static public boolean isLoggedin(HttpServletRequest request){
-		try {
-			// Check user is logged in
-			User user = (User) request.getSession().getAttribute(
-					ServletUtil.SESSION_ATTR_USER);
-			if (user == null)
-				return false;
-		} catch (Exception e) {
-			e.printStackTrace();
+static public boolean isLoggedin(HttpServletRequest request){
+	try {
+		// Check user is logged in
+		User user = (User) request.getSession().getAttribute(
+				ServletUtil.SESSION_ATTR_USER);
+		if (user == null)
 			return false;
-		}
-		
-		return true;
+	} catch (Exception e) {
+		LOGGER.error("An unexpected exception occurred", e);
+		return false;
 	}
 	
-	static public User getUser(HttpServletRequest request){
-		User user = (User)request.getSession().getAttribute(ServletUtil.SESSION_ATTR_USER);
-		return user;
-	}
+	return true;
+}
+	
+static public User getUser(HttpServletRequest request){
+	User user = (User)request.getSession().getAttribute(ServletUtil.SESSION_ATTR_USER);
+	return user;
+}
 
 	/* initialize REST API properties */
 	static public void initializeRestAPI(ServletContext servletContext) {
