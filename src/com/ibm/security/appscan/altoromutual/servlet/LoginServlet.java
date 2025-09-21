@@ -29,6 +29,7 @@ import javax.servlet.http.HttpSession;
 import com.ibm.security.appscan.Log4AltoroJ;
 import com.ibm.security.appscan.altoromutual.util.DBUtil;
 import com.ibm.security.appscan.altoromutual.util.ServletUtil;
+import org.slf4j.Logger; import org.slf4j.LoggerFactory;
 
 /**
  * This servlet processes user's login and logout operations
@@ -37,6 +38,7 @@ import com.ibm.security.appscan.altoromutual.util.ServletUtil;
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = LoggerFactory.getLogger(LoginServlet.class);
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -96,7 +98,7 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath()+"/bank/main.jsp");
 			}
 		catch (Exception ex){
-			ex.printStackTrace();
+			LOGGER.error("An error occurred while establishing session", ex);
 			response.sendError(500);
 		}
 			
