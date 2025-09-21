@@ -22,7 +22,6 @@ IBM AltoroJ
 %> 
     
 <jsp:include page="/header.jspf"/>
-
 <div id="wrapper" style="width: 99%;">
 	<jsp:include page="membertoc.jspf"/>
     <td valign="top" colspan="3" class="bb">
@@ -31,7 +30,7 @@ IBM AltoroJ
 		<%
 			String content = request.getParameter("content");
 			if (content != null && !content.equalsIgnoreCase("customize.jsp")){
-				if (content.startsWith("http://") || content.startsWith("https://")){
+				if (content.startsWith("/") && !content.startsWith("//")){
 					response.sendRedirect(content);
 				}
 			}
