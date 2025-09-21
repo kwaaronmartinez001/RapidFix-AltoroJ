@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
 <%
 /**
  This application is for demonstration use only. It contains known application security
@@ -37,7 +36,7 @@ IBM AltoroJ
 			  <table>
 			    <tr>
 			      <td colspan="2">
-			        <div style="font-weight: bold; font-size: 12px; color: red;" id="message"><%=(request.getAttribute("message_subscribe")!=null)?request.getAttribute("message_subscribe"):"" %></div>
+			        <div style="font-weight: bold; font-size: 12px; color: red;" id="message"><%=(request.getAttribute("message_subscribe") != null) ? org.apache.commons.lang.StringEscapeUtils.escapeHtml4(request.getAttribute("message_subscribe").toString()) : "" %></div>
 			      </td>
 			    </tr>
 			    <tr>
