@@ -68,7 +68,6 @@ public class User implements java.io.Serializable{
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public String getLastName() {
 		return lastName;
 	}
@@ -77,7 +76,6 @@ public class User implements java.io.Serializable{
 		try {
 			return DBUtil.getAccounts(username);
 		} catch (SQLException e) {
-			e.printStackTrace();
 			return null;
 		}
 	}
