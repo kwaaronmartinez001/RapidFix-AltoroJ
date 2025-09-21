@@ -347,7 +347,7 @@ public class ServletUtil {
 		    return accountCookie;
 		}
 		catch(SQLException e){
-			e.printStackTrace();
+			LOGGER.error("SQL exception occurred:", e);
 			return null;
 		}
 	}
